@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<header>
+    <meta charset="UTF-8">
+    <title>Список контактов</title>
+</header>
+<body>
+<h1>Контакты</h1>
+<table border=3 cellpadding=5>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>EMAIL</th>
+        <th>Телефон</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contact : ${contacts}">
+        <td th:text="${contact.id}"></td>
+        <td th:text="${contact.firstName}"></td>
+        <td th:text="${contact.lastName}"></td>
+        <td th:text="${contact.email}"></td>
+        <td th:text="${contact.phone}"></td>
+        <td>
+            <a th:href="@{/contact/edit/{id}(id=${contact.id})}">редактировать</a>
+            <a th:href="@{/contact/delete/{id}(id=${contact.id})}">удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/contact/edit}">Добавить контакт</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${action}"></title>
+</head>
+<body>
+<h1 th:text="${action}"></h1>
+<form action="/contact/edit" method="post">
+    <input type="hidden" name="id" th:value="${contact.id}">
+    <div>
+        <label for="firstName">Имя</label>
+        <input type="text" id="firstName" name="firstName" required th:value="${contact.firstName}">
+    </div>
+    <div>
+        <label for="lastName">Фамилия</label>
+        <input type="text" id="lastName" name="lastName" th:value="${contact.lastName}">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" th:value="${contact.email}">
+    </div>
+    <div>
+        <label for="phone">Телефон</label>
+        <input type="text" id="phone" name="phone" th:value="${contact.phone}">
+    </div>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/">Отмена</a>
+</body>
+</html>
